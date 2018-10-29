@@ -161,7 +161,6 @@ button {
     padding: 10px 30px;
     color: #000;
     font-size: 75%;
-    border-radius: 0px;
     position: absolute;
     left: 0;
     right: 0;
@@ -179,4 +178,35 @@ button {
     color: white;
     background-color: rgb(37, 37, 37);
     transition: 0.1s ease-in-out;
+}
+
+.li-style-liked {
+    color: rgb(79, 220, 255);
+    margin: 10px;
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.li-style-skipped {
+    color: #FF5F71;
+    margin: 10px;
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.list-head {
+    margin-bottom: 25px;
+}
+
+#map {
+    width: 70%;
+    border-radius: 15px;
+    margin: 80px auto;
+}
+
+#distance-div {
+    width: 30%;
+    padding: 10px 50px;
+    margin: 80px auto 0px;
+    text-align: center;
 }

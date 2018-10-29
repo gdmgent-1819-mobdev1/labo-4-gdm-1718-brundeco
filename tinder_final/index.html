@@ -11,7 +11,7 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="shortcut icon" href="images/media.png">
     <script src="js/hammer.min.js"></script>
-    <title>tinder v3</title>
+    <title>baazdunsd v3</title>
 </head>
 <body>
 
@@ -20,10 +20,10 @@
         <a href="javascript:void(0)" class="closebtn" id="closeIt">&times;</a>
         <div class="list-wrapper">
                 <ul id="likeSelection">
-                    <h3>MY LIKES</h3>
+                    <h3 class="list-head">MY LIKES</h3>
                 </ul>
                 <ul id="skipSelection">
-                    <h3>MY SKIPS</h3>
+                    <h3 class="list-head">MY SKIPS</h3>
                 </ul>
         </div>         
     </div>
@@ -53,17 +53,18 @@
         </div>
 
         <!-- GEOLOCATION CONTAINERS -->
-        <div id='map' style='width: 100%; height: 300px;'></div>
-        <div id="container"></div>
         <div id="distance-div">
             <p id="distance"></p>
         </div>
+        <div id='map' style='height: 300px;'></div>
+        <div id="container"></div>
+
     </div>
 
 
 <script src="js/script.js"></script>
 <script src="js/menu.js"></script>
-<!-- <script src="js/geolocation.js"></script> -->
+<script src="js/geolocation.js"></script>
 
 <script>// Add geolocate control to the map.
 

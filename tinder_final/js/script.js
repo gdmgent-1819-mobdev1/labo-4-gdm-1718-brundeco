@@ -62,10 +62,11 @@ function getTinderProfiles(callback) {
 
         // Add like to local storage under likes value
         let listInfo = document.createElement('li');
+        listInfo.setAttribute('class', 'li-style-liked');
         // listInfo.innerHTML += JSON.stringify((likes[0].name).replace(/"([^"]+(?="))"/g, '$1') + ' ' + (likes[0].age)).replace(/"([^"]+(?="))"/g, '$1');
         for(let i = 0; i < likes.length; i++) {
           listInfo.innerHTML = "";
-          listInfo.innerHTML += likes[i].name + ' ' + likes[i].age + '<br>';
+          listInfo.innerHTML += likes[i].name + ' / ' + likes[i].age + '<br>';
           localStorage.setItem("likes", JSON.stringify(likes[i]));
         }
         likeSelection.appendChild(listInfo);
@@ -89,10 +90,11 @@ function getTinderProfiles(callback) {
         // Add like to local storage under likes value
         localStorage.setItem("skips", JSON.stringify(likes[0]));
         let listInfo = document.createElement('li');
+        listInfo.setAttribute('class', 'li-style-skipped');
         // listInfo.innerHTML += JSON.stringify((likes[0].name).replace(/"([^"]+(?="))"/g, '$1') + ' ' + (likes[0].age)).replace(/"([^"]+(?="))"/g, '$1');
         for(let i = 0; i < skips.length; i++) {
           listInfo.innerHTML = "";
-          listInfo.innerHTML += skips[i].name + ' ' + skips[i].age + '<br>';
+          listInfo.innerHTML += skips[i].name + ' / ' + skips[i].age + '<br>';
           localStorage.setItem("skips", JSON.stringify(skips[i]));
         }
         skipSelection.appendChild(listInfo);
@@ -121,35 +123,6 @@ function getTinderProfiles(callback) {
 }
 
 getTinderProfiles();
-
-
-
-
-
-
-// var a = [];
-// function SaveDataToLocalStorage(data)
-// {       
-//     var receiveddata = JSON.stringify(data);
-//     a.push(receiveddata);
-//     alert(a);
-
-//     localStorage.setItem('session', a);
-
-// }
-
-
-// var a = [];
-// a.push(JSON.parse(localStorage.getItem('session')));
-// localStorage.setItem('session', JSON.stringify(a));
-
-
-
-
-
-
-
-
 
 
 
