@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="shortcut icon" href="images/media.png">
+    <script src="js/hammer.min.js"></script>
+    <title>tinder v3</title>
+</head>
+<body>
+
+    <!-- MENU STORING LIKES EN SKIPS -->
+    <div id="mySelection">
+        <a href="javascript:void(0)" class="closebtn" id="closeIt">&times;</a>
+        <div class="list-wrapper">
+                <ul id="likeSelection">
+                    <h3>MY LIKES</h3>
+                </ul>
+                <ul id="skipSelection">
+                    <h3>MY SKIPS</h3>
+                </ul>
+        </div>         
+    </div>
+
+    <div class="wrapper">
+        <!-- BUTTON TO TOGGLE MENU -->
+        <div class="button-box">
+            <a id="openIt">VIEW MY SELECTION</a>
+        </div>
+
+        <!-- PHONE DIV -->
+        <div id="phone">
+            <div id="screen">
+                <div id="imgBox">
+                    <img src="" alt="" id="personImg">
+                </div>
+                <div id="infoBox">
+                    <h2 id="personName"></h2>
+                    <h4 id="personAge"></h4>
+                    <h3 id="personLocation"></h3>
+                </div>
+            </div>
+            <div class="action">
+                <button id="clickSkip">SKIP</button>
+                <button id="clickLike">LIKE</button>
+            </div>
+        </div>
+
+        <!-- GEOLOCATION CONTAINERS -->
+        <div id='map' style='width: 100%; height: 300px;'></div>
+        <div id="container"></div>
+        <div id="distance-div">
+            <p id="distance"></p>
+        </div>
+    </div>
+
+
+<script src="js/script.js"></script>
+<script src="js/menu.js"></script>
+<!-- <script src="js/geolocation.js"></script> -->
+
+<script>// Add geolocate control to the map.
+
+    </script>
+</body>
+</html>
