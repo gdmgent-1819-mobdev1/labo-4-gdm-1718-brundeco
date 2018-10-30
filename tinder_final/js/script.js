@@ -55,6 +55,7 @@ function getTinderProfiles(callback) {
       printPerson();
 
       function clickLike() {
+        navigate();
         // Add current profile to likes array
         likes.push(currentPerson);
         // Remove current profile
@@ -82,6 +83,7 @@ function getTinderProfiles(callback) {
       }
 
       function clickSkip() {
+        navigate();
         // Add current profile to likes array
         skips.push(currentPerson);
         // Remove current profile
@@ -114,21 +116,14 @@ function getTinderProfiles(callback) {
       likeButton.addEventListener('click', clickLike);
       skipButton.addEventListener('click', clickSkip);
       
-      // if (localStorage.getItem("person") == null) {
-      //   getTinderProfiles();
-      //  } else {
-      //    printPerson();
-      //  }
+
     });
 }
 
 getTinderProfiles();
 
 
-
-
-
-
+console.log(profiles);
 
 
 
