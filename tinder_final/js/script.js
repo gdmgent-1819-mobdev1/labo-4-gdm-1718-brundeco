@@ -52,6 +52,7 @@ function getTinderProfiles(callback) {
         personAge.innerHTML = currentPerson.age;
         personLocation.innerHTML = currentPerson.location;
       }
+
       printPerson();
 
       function clickLike() {
@@ -104,8 +105,6 @@ function getTinderProfiles(callback) {
         b.push(JSON.parse(localStorage.getItem('skips')));
         localStorage.setItem('skips', JSON.stringify(b));
 
-
-
         // Get 10 more profiles if profiles array is less than or equal to 1
         if (profiles <= 1) {
           getTinderProfiles();
@@ -113,10 +112,39 @@ function getTinderProfiles(callback) {
         printPerson();
       }
 
+      
+      // Hammer.JS implementation
+      let mc = new Hammer(screen);
+
+      mc.on("swiperight", clickLike);
+      mc.on("swipeleft", clickSkip);
+
+      // Drag and drop implementation
+      // let startingX;
+
+      // function handleTouchStart(evt) {
+      //   startingX = evt.touches[0].clientX;
+      //   console.log('touched');
+      // }
+
+      // function handleTouchMove(evt) {
+      //   let touch = evt.touches[0];
+      //   let change = startingX - evt.touches[0].clientX;
+      //   console.log('moved');
+
+      //   screen.style.left = '-' + change + 'px';
+      // }
+
+      // screen.addEventListener('mousedown', handleTouchStart);
+      // screen.addEventListener('mousemove', handleTouchMove);
+
+
+
+
+
+
       likeButton.addEventListener('click', clickLike);
       skipButton.addEventListener('click', clickSkip);
-      
-
     });
 }
 
