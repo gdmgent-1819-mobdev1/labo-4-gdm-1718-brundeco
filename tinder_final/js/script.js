@@ -1,4 +1,4 @@
-      // : : : : : : : : : : declare variables : : : : : : : : : 
+// : : : : : : : : : : declare variables : : : : : : : : : 
 let url = 'https://randomuser.me/api/?results=11';
 let profiles = [];
 let Person = new Object();
@@ -21,7 +21,7 @@ let personLocation = document.getElementById('personLocation');
 
 console.log(localStorage.getItem('likes'));
 
-      // : : : : : : : : : : start fetch, get random user data : : : : : : : : : 
+// : : : : : : : : : : start fetch, get random user data : : : : : : : : : 
 function getTinderProfiles(callback) {
   fetch(url)
     .then(function (response) {
@@ -42,11 +42,11 @@ function getTinderProfiles(callback) {
         }
 
         // Add fetched persons to profiles array
-          profiles.push(Person);
-          // console.log(profiles);
+        profiles.push(Person);
+        // console.log(profiles);
 
         // Add fetched persons to local storage
-          localStorage.setItem('person', JSON.stringify(profiles));
+        localStorage.setItem('person', JSON.stringify(profiles));
       }
 
       // : : : : : : : : : : printPerson function() : : : : : : : : : 
@@ -69,7 +69,7 @@ function getTinderProfiles(callback) {
         // create list item, add data and print data in selection menu
         let listInfo = document.createElement('li');
         listInfo.setAttribute('class', 'li-style-liked');
-        for(let i = 0; i < likes.length; i++) {
+        for (let i = 0; i < likes.length; i++) {
           listInfo.innerHTML = "";
           listInfo.innerHTML += likes[i].name + ' / ' + likes[i].age;
           localStorage.setItem("likes", JSON.stringify(likes[i]));
@@ -98,7 +98,7 @@ function getTinderProfiles(callback) {
         let listInfo = document.createElement('li');
         listInfo.setAttribute('class', 'li-style-skipped');
 
-        for(let i = 0; i < skips.length; i++) {
+        for (let i = 0; i < skips.length; i++) {
           listInfo.innerHTML = "";
           listInfo.innerHTML += skips[i].name + ' / ' + skips[i].age;
           localStorage.setItem("skips", JSON.stringify(skips[i]));

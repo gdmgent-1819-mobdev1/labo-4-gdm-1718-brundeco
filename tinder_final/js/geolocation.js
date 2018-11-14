@@ -7,8 +7,6 @@ function navigate() {
   // API key
   mapboxgl.accessToken = 'pk.eyJ1IjoiYnJ1bmVsbGkiLCJhIjoiY2puYWxudTl0NzF2ejN2bng2eXF0ZHBseiJ9.7P5TS1LrZrEOPgsjtbO--w';
 
-  
-
   // get geographic positions
   navigator.geolocation.getCurrentPosition(function (position) {
     myLat = position.coords.latitude;
@@ -30,7 +28,6 @@ function navigate() {
       
     });
 
-    
     console.log(lat1);
     console.log(lat2);
     console.log(lon1);
@@ -48,14 +45,12 @@ function navigate() {
     document.getElementById('distance').innerHTML = "U bent " + x + " km verwijdert van deze persoon";
   });
   
-
   // get html element, add style and zoom level
   let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10',
     zoom: 5
   });
-
 
   // disable scroll
   map.scrollZoom.disable();

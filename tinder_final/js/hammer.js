@@ -12,10 +12,8 @@ mc.on("panright", function(ev) {
         // Remove current profile
         profiles.shift();
 
-        // Add like to local storage under likes value
         let listInfo = document.createElement('li');
         listInfo.setAttribute('class', 'li-style-liked');
-        // listInfo.innerHTML += JSON.stringify((likes[0].name).replace(/"([^"]+(?="))"/g, '$1') + ' ' + (likes[0].age)).replace(/"([^"]+(?="))"/g, '$1');
         for(let i = 0; i < likes.length; i++) {
           listInfo.innerHTML = "";
           listInfo.innerHTML += likes[i].name + ' / ' + likes[i].age + '<br>';
