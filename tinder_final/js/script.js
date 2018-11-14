@@ -1,3 +1,4 @@
+      // : : : : : : : : : : declare variables : : : : : : : : : 
 let url = 'https://randomuser.me/api/?results=11';
 let profiles = [];
 let Person = new Object();
@@ -18,6 +19,9 @@ let personName = document.getElementById('personName');
 let personAge = document.getElementById('personAge');
 let personLocation = document.getElementById('personLocation');
 
+console.log(localStorage.getItem('likes'));
+
+      // : : : : : : : : : : start fetch, get random user data : : : : : : : : : 
 function getTinderProfiles(callback) {
   fetch(url)
     .then(function (response) {
@@ -34,7 +38,7 @@ function getTinderProfiles(callback) {
           age: 'Age: ' + randomUser[i].dob.age,
           location: randomUser[i].location.city + ' ' + randomUser[i].location.postcode + '<br>' + randomUser[i].location.street,
           lat: randomUser[i].location.coordinates.latitude,
-          long: randomUser[i].location.coordinates.longitude
+          lon: randomUser[i].location.coordinates.longitude
         }
 
         // Add fetched persons to profiles array
@@ -45,6 +49,7 @@ function getTinderProfiles(callback) {
           localStorage.setItem('person', JSON.stringify(profiles));
       }
 
+      // : : : : : : : : : : printPerson function() : : : : : : : : : 
       function printPerson() {
         currentPerson = profiles[0];
         personImg.src = currentPerson.picture;
@@ -52,30 +57,27 @@ function getTinderProfiles(callback) {
         personAge.innerHTML = currentPerson.age;
         personLocation.innerHTML = currentPerson.location;
       }
-
       printPerson();
 
+      // : : : : : : : : : : click like function() : : : : : : : : : 
       function clickLike() {
         navigate();
         // Add current profile to likes array
         likes.push(currentPerson);
         // Remove current profile
         profiles.shift();
-
-        // Add like to local storage under likes value
+        // create list item, add data and print data in selection menu
         let listInfo = document.createElement('li');
         listInfo.setAttribute('class', 'li-style-liked');
-        // listInfo.innerHTML += JSON.stringify((likes[0].name).replace(/"([^"]+(?="))"/g, '$1') + ' ' + (likes[0].age)).replace(/"([^"]+(?="))"/g, '$1');
         for(let i = 0; i < likes.length; i++) {
           listInfo.innerHTML = "";
-          listInfo.innerHTML += likes[i].name + ' / ' + likes[i].age + '<br>';
+          listInfo.innerHTML += likes[i].name + ' / ' + likes[i].age;
           localStorage.setItem("likes", JSON.stringify(likes[i]));
         }
         likeSelection.appendChild(listInfo);
 
         a.push(JSON.parse(localStorage.getItem('likes')));
         localStorage.setItem('likes', JSON.stringify(a));
-
         // Get 10 more profiles if profiles array is less than or equal to 1
         if (profiles <= 1) {
           getTinderProfiles();
@@ -83,21 +85,22 @@ function getTinderProfiles(callback) {
         printPerson();
       }
 
+      // : : : : : : : : : : click skip function() : : : : : : : : : 
       function clickSkip() {
         navigate();
-        // Add current profile to likes array
+        // Add current profile to skips array
         skips.push(currentPerson);
         // Remove current profile
         profiles.shift();
 
-        // Add like to local storage under likes value
+        // Add skip to local storage under skip value
         localStorage.setItem("skips", JSON.stringify(likes[0]));
         let listInfo = document.createElement('li');
         listInfo.setAttribute('class', 'li-style-skipped');
-        // listInfo.innerHTML += JSON.stringify((likes[0].name).replace(/"([^"]+(?="))"/g, '$1') + ' ' + (likes[0].age)).replace(/"([^"]+(?="))"/g, '$1');
+
         for(let i = 0; i < skips.length; i++) {
           listInfo.innerHTML = "";
-          listInfo.innerHTML += skips[i].name + ' / ' + skips[i].age + '<br>';
+          listInfo.innerHTML += skips[i].name + ' / ' + skips[i].age;
           localStorage.setItem("skips", JSON.stringify(skips[i]));
         }
         skipSelection.appendChild(listInfo);
@@ -112,95 +115,15 @@ function getTinderProfiles(callback) {
         printPerson();
       }
 
-      
-      // Hammer.JS implementation
+      // : : : : : : : : : : Hammer swipe implementation : : : : : : : : : 
       let mc = new Hammer(screen);
-
       mc.on("swiperight", clickLike);
       mc.on("swipeleft", clickSkip);
 
-      // Drag and drop implementation
-      // let startingX;
-
-      // function handleTouchStart(evt) {
-      //   startingX = evt.touches[0].clientX;
-      //   console.log('touched');
-      // }
-
-      // function handleTouchMove(evt) {
-      //   let touch = evt.touches[0];
-      //   let change = startingX - evt.touches[0].clientX;
-      //   console.log('moved');
-
-      //   screen.style.left = '-' + change + 'px';
-      // }
-
-      // screen.addEventListener('mousedown', handleTouchStart);
-      // screen.addEventListener('mousemove', handleTouchMove);
-
-
-
-
-
-
+      // : : : : : : : : : : Event listeners to execute click and skip functions : : : : : : : : : 
       likeButton.addEventListener('click', clickLike);
       skipButton.addEventListener('click', clickSkip);
     });
 }
 
 getTinderProfiles();
-
-
-console.log(profiles);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function printPerson() {
-//   let personDiv = document.createElement('div');
-//   let personImage = document.createElement('img');
-//   let personFirstName = document.createElement('h3');
-//   let personName = document.createElement('h3');
-//   let personAge = document.createElement('h3');
-//   let personLocation = document.createElement('h3');
-
-//   personImage.src = person.picture;
-//   personFirstName.innerHTML = person.firstname;
-//   personName.innerHTML = person.name;
-//   personAge.innerHTML = person.age;
-//   personLocation.innerHTML = person.location;
-
-//   screen.appendChild(personDiv);
-//   personDiv.appendChild(personImage);
-//   personDiv.appendChild(personFirstName);
-//   personDiv.appendChild(personName);
-//   personDiv.appendChild(personAge);
-//   personDiv.appendChild(personLocation);
-// }
-// printPerson();

@@ -1,5 +1,4 @@
 body {
-    /* font-family: 'K2D', sans-serif; */
     font-family: 'Raleway', sans-serif;
     margin: 0;
     position: relative;
@@ -86,6 +85,16 @@ button {
     outline: none;
     cursor: pointer;
     font-size: 100%;
+}
+
+button#switch {
+    padding: 3px;
+    background-color: white;
+    border: 2px solid white;
+    margin-left: 20px;
+    border-radius: 5px;
+    color: black;
+    font-size: 60%;
 }
 
 .action {
@@ -209,4 +218,8 @@ button {
     padding: 10px 50px;
     margin: 80px auto 0px;
     text-align: center;
+}
+
+#likeSelection, #skipSelection {
+    overflow: scroll;
 }
